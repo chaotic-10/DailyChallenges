@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string frequencySort(string s) {
+        map<char,int> m;
+        for(int i = 0 ; i < s.size() ; i++){
+            m[s[i]]++;
+        }
+        vector<pair<int,char>> v;
+        for(auto it : m){
+            v.push_back({it.second,it.first});
+        }
+        sort(v.begin(),v.end());
+        string ans ;
+        for(int i = v.size()-1 ; i >= 0 ; i--)
+        {
+            // v[i].first times print karunga wo alphabet 
+            for(int j = 0 ; j < v[i].first ; j++)
+            {
+                ans.push_back(v[i].second);
+            }
+        }
+        return ans;
+    }
+};
